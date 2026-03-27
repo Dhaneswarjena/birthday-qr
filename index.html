@@ -41,20 +41,81 @@
   <body>
     <h1>🎁 Birthday Surprise 🎂</h1>
 
+    <!DOCTYPE html>
+<html>
+<head>
+  <title>Scanning...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      text-align: center;
+      font-family: Arial;
+      background: black;
+      color: white;
+    }
+
+    .scanner {
+      margin-top: 100px;
+    }
+
+    .box {
+      width: 250px;
+      height: 250px;
+      border: 3px solid #00ffcc;
+      margin: auto;
+      position: relative;
+    }
+
+    .line {
+      width: 100%;
+      height: 3px;
+      background: red;
+      position: absolute;
+      animation: scan 2s infinite;
+    }
+
+    @keyframes scan {
+      0% { top: 0; }
+      100% { top: 100%; }
+    }
+
+    #birthday {
+      display: none;
+      padding-top: 100px;
+    }
+
+    h1 {
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fake Scanner Screen -->
+  <div class="scanner" id="scanner">
+    <h2>📡 Scanning QR Code...</h2>
     <div class="box">
-      <p>🔗 Open this link:</p>
-      <a href="https://dhaneswarjena.github.io/birthday-qr" target="_blank">
-        https://dhaneswarjena.github.io/birthday-qr
-      </a>
+      <div class="line"></div>
+    </div>
+  </div>
 
-      <p>👇 Or scan below 👇</p>
+  <!-- Birthday Message -->
+  <div id="birthday">
+    <h1>🎂 Happy Birthday 🎉</h1>
+    <p>Wishing you lots of happiness 🥳</p>
+  </div>
 
-      <!-- Replace this QR image with your generated QR -->
-      <img
-        src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://dhaneswarjena.github.io/birthday-qr"
-        alt="QR Code"
-      />
+  <script>
+    setTimeout(() => {
+      document.getElementById("scanner").style.display = "none";
+      document.getElementById("birthday").style.display = "block";
+      document.title = "Happy Birthday 🎉";
+    }, 3000); // 3 seconds delay
+  </script>
 
+</body>
+</html>
       <p>📱 Scan it for wishing Happy Birthday 🎉</p>
     </div>
   </body>
