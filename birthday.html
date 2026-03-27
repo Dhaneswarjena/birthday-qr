@@ -31,10 +31,27 @@
   <p>Enjoy your special day 🥳</p>
 
   <!-- 🎬 YouTube Birthday Video -->
-  <audio controls autoplay loop>
+  <audio id="music" autoplay loop muted>
     <source src="https://pixabay.com/music/electronic-happy-birthday-495860/.mp3" type="audio/mp3">
   </audio>
+<script>
+    window.onload = function () {
+      let audio = document.getElementById("music");
 
+      // Try to unmute and play
+      audio.muted = false;
+      audio.play().catch(() => {
+        console.log("Autoplay blocked");
+      });
+    };
+
+    // Fallback: play on first touch
+    document.addEventListener("click", function () {
+      let audio = document.getElementById("music");
+      audio.muted = false;
+      audio.play();
+    });
+  </script>
 
 </body>
 </html>
